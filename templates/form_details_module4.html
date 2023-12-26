@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details Page</title>
+    <style>
+        /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Container Styles */
+div {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+h1 {
+    color: #007bff;
+    text-align: center;
+}
+
+/* List Styles */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* List Item Styles */
+li {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+/* Media Queries for Smaller Screens */
+@media only screen and (max-width: 600px) {
+    div {
+        max-width: 90%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Details</h1>
+        {% if details %}
+            <ul>
+                {% for detail in details %}
+                    <li>Name: {{ detail.name }}, Age: {{ detail.age }}, Email: {{ detail.email }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No details available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Container Styles */
+div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+div > div {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+div > div:hover {
+    transform: scale(1.05);
+}
+
+/* Heading Styles */
+h3 {
+    color: #007bff;
+    text-align: center;
+}
+
+/* Paragraph Styles */
+p {
+    color: #555;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Button Styles */
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries for Smaller Screens */
+@media only screen and (max-width: 600px) {
+    div > div {
+        width: 100%;
+        max-width: none;
+    }
+}
