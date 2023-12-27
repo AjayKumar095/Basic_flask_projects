@@ -6,8 +6,8 @@ from modules.module3 import module3_bp
 from modules.module4 import module4_bp
 from modules.module5 import module5_bp
 
-
 app = Flask(__name__)
+app.secret_key = 'fjjkf857fdjft548jnvfKJJNjhdfd'
 
 app.register_blueprint(module1_bp, url_prefix='/module1')
 app.register_blueprint(module2_bp, url_prefix='/module2')

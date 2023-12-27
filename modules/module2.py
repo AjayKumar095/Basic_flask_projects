@@ -10,7 +10,7 @@ def task2():
 
 @module2_bp.route('/page1')
 def page1():
-    return render_template('page1_module1.html')
+    return render_template('page1_module2.html')
 
 @module2_bp.route('/home')
 def home():

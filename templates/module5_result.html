@@ -3,10 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 5 Result</title>
+    <title>Program 5</title>
+    <style>
+        /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    margin-top: 25px;
+}
+
+/* Container Styles */
+div {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+h1 {
+    color: #007bff;
+    text-align: center;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Label Styles */
+label {
+    margin-top: 10px;
+    color: #555;
+}
+
+/* Input Styles */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Submit Button Styles */
+button {
+    background-color: #f0f0f0;
+    color: #007bff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+/* Media Queries for Smaller Screens */
+@media only screen and (max-width: 600px) {
+    div {
+        max-width: 90%;
+    }
+    body{
+        margin-top: 15px;
+    }
+}
+
+    </style>
 </head>
 <body>
-    <h1>Module 5 Result</h1>
-    <p>{{ result }}</p>
+    <div class='heading'><h1>Program 5</h1></div>
+    <br>
+    <div>
+        <h1>Login</h1>
+        <form action="{{ url_for('module5.login') }}" method="post">
+            <label for="username">Enter your Username:</label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>

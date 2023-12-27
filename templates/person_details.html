@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program 3</title>
+    <title>Person Information</title>
 <style>
     /* Responsive Styles */
 body {
@@ -28,37 +28,31 @@ div {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h3 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
 p {
     color: #555;
     font-size: 14px;
     line-height: 1.6;
-    text-align: center;
+    margin-bottom: 10px;
 }
 
 /* Media Queries for Smaller Screens */
 @media only screen and (max-width: 600px) {
     div {
-        max-width: 100%;
+        max-width: 90%;
     }
 }
-
-</style>
-    
+</style>    
 </head>
 <body>
-    <div><h1>Program 3</h1></div>
     <div>
-        <h3>How to see dynamic content by using URL parameters?<br>
-        URL to use: http://127.0.0.1:5000/module3/person/int:id</h3><br>
-        <p>Replace 'int:id' by any integer from 1 to 5 to see dynamic details of person's<br>
-            Exapmle:- http://127.0.0.1:5000/module3/person/1 </p>
+        <h1>Person Information</h1>
+        {% if person %}
+            <p>Name: {{ person.name }}</p>
+            <p>Age: {{ person.age }}</p>
+            <p>Occupation: {{ person.occupation }}</p>
+        {% else %}
+            <p>Person not found </p>
+        {% endif %}
     </div>
-    
 </body>
 </html>
