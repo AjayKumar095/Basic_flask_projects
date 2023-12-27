@@ -4,10 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Uploaded File</title>
+     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        div {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        p {
+            color: #555;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>View Uploaded File</h1>
-    <p>This is the content of the uploaded file:</p>
-    <pre>{{ file_content }}</pre>
+    <div>
+        <h1>Uploaded File Content</h1><br>
+        <div>
+            <p>File Name: {{ file_name }}</p><br>
+            <p>File Content:</p>
+            <p> {{ content }}</p><br>
+            <a href="{{ url_for('module6.task6') }}">Back to Home</a>
+        </div>
+    </div>
 </body>
 </html>

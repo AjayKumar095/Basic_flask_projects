@@ -1,60 +1,38 @@
-from flask import Blueprint as bp, render_template, request,redirect, send_file
+from flask import Blueprint as bp, render_template, request
 import os
 
 module6_bp = bp('module6', __name__)
 
-module6_bp.config['UPLOAD_FOLDER'] = '/path/to/your/uploads/folder'
-module6_bp.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # 5 MB limit
-
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
-
-@module6_bp.route('/task6', methods=['POST'])
+@module6_bp.route('/task6', methods=['GET','POST'])
 def task6():
     return render_template("module6_result.html")
 
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @module6_bp.route('/upload', methods=['POST'])
 def upload_file():
+    folder_path="static"
+    
     if 'file' not in request.files:
-        # Handle case where no file is provided
-        return redirect(request.url)
+        return 'No file part'
 
     file = request.files['file']
 
+    # If the user does not select a file, the browser sends an empty file
     if file.filename == '':
-        # Handle case where no file is selected
-        return redirect(request.url)
+        return 'No selected file'
 
-    if file and allowed_file(file.filename):
-        # Delete the existing file (if it exists)
-        existing_file_path = os.path.join(module6_bp.config['UPLOAD_FOLDER'], file.filename)
-        if os.path.exists(existing_file_path):
-            os.remove(existing_file_path)
-
-        # Save the new file
-        file.save(existing_file_path)
-
-        return 'File uploaded successfully'
-
-    # Handle invalid file type or size exceeds the limit
-    return 'Invalid file type or size exceeds the limit'
-
-@module6_bp.route('/view_uploaded_file/<filename>')
-def view_uploaded_file(filename):
-    file_path = os.path.join(module6_bp.config['UPLOAD_FOLDER'], filename)
-
-    if allowed_file(filename):
-        # Render content based on file type
-        if filename.lower().endswith('.txt'):
-            with open(file_path, 'r') as file:
-                file_content = file.read()
-        else:
-            # Handle rendering for other file types (e.g., images, PDFs)
-            return send_file(file_path, as_attachment=True)
-
-        return render_template('uploaded_file_module6.html', file_content=file_content)
-
-    # Handle invalid file type
-    return 'Invalid file type'
+    # Check if the file is allowed based on its extension
+    #if '.' in file.filename and file.filename.rsplit('.', 1)[1].lower()=='txt':
+    if file.filename.endswith(".txt"):
+    # Process the file (e.g., save it, get file information)
+        file_name = file.filename
+        file_path = os.path.join(folder_path, file.filename)
+        file.save(file_path)
+        with open(folder_path+"/"+file_name,'r') as f:
+           content= f.read()
+    
+        os.remove(file_path)
+    # Render the view_uploaded_file template with file information
+        return render_template('uploaded_file_module6.html', file_name=file_name,content=content)
+    else:
+        return 'Invalid file extension, file should be .txt extension.'

@@ -9,6 +9,7 @@ from modules.module6 import module6_bp
 
 app = Flask(__name__)
 app.secret_key = 'fjjkf857fdjft548jnvfKJJNjhdfd'
+app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
 
 app.register_blueprint(module1_bp, url_prefix='/module1')
 app.register_blueprint(module2_bp, url_prefix='/module2')
