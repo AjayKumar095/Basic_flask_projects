@@ -1,40 +1,57 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
-        <title>Program 11</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <form id="form" >
-            <input type='text' id='input' placeholder='Enter your message'>
-            <button type='submit'>Send</button>
-        </form>
-        <form>
-            <ul id='messages'>
-            </ul>
-        </form>
-    </body>
-    <script>
-        let socket= io();
-        let form= document.getElementById("form")
-        let input= document.getElementById("input")
-        let imageInput= document.getElementById("image")
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+</head>
+<body>
 
-        form.addEventListener('submit',(event) =>{
-             event.preventDefault()
-             let message=input.value
-             socket.emit('message', message)
-             input.value=''
-        })
-        socket.on('message', (message) =>{
-            let li = document.createElement('li')
-            li.textContent=message
-            messagesList.prepend(li)
-        })
+    <form id="form">
+        <input type='text' id='input' placeholder='Enter your message'>
+        <button type='submit'>Send</button>
+    </form>
+
+    <ul id='messages'></ul>
+
+    <script>
+        // Assume you have a WebSocket connection
+        const socket = new WebSocket('ws://localhost:5000');
+
+
+        // Event listener for form submission
+        document.getElementById('form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            const inputField = document.getElementById('input');
+            const message = inputField.value.trim();
+
+            if (message !== '') {
+                // Send the message to the server
+                socket.send(message);
+
+                // Append the message to the list
+                const messagesList = document.getElementById('messages');
+                const listItem = document.createElement('li');
+                listItem.textContent = message;
+                messagesList.appendChild(listItem);
+
+                // Clear the input field
+                inputField.value = '';
+            }
+        });
+
+        // Assume you have an event listener to handle incoming messages from the server
+        socket.addEventListener('message', function (event) {
+            const message = event.data;
+
+            // Append the incoming message to the list
+            const messagesList = document.getElementById('messages');
+            const listItem = document.createElement('li');
+            listItem.textContent = message;
+            messagesList.appendChild(listItem);
+        });
     </script>
+
+</body>
 </html>
