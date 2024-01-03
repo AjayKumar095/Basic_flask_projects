@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 @module11_bp.route('/task11', methods=["POST"])
 def task11():
-    return render_template("module11_result.html")
+    return render_template("advance/module11_result.html")
 
 @socketio.on('message')
 def handle_message(message):
