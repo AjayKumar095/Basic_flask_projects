@@ -5,7 +5,7 @@ module6_bp = bp('module6', __name__)
 
 @module6_bp.route('/task6', methods=['GET','POST'])
 def task6():
-    return render_template("module6_result.html")
+    return render_template("intermediate/module6_result.html")
 
 
 @module6_bp.route('/upload', methods=['POST'])
@@ -33,6 +33,6 @@ def upload_file():
     
         os.remove(file_path)
     # Render the view_uploaded_file template with file information
-        return render_template('uploaded_file_module6.html', file_name=file_name,content=content)
+        return render_template('intermediate/uploaded_file_module6.html', file_name=file_name,content=content)
     else:
         return 'Invalid file extension, file should be .txt extension.'

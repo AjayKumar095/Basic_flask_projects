@@ -6,9 +6,9 @@ module5_bp = bp('module5', __name__)
 def task5():
    if 'username' in session:
         username = session['username']
-        return render_template('user_module5.html', username=username)
+        return render_template('basic/user_module5.html', username=username)
    else:
-        return render_template('module5_result.html')
+        return render_template('basic/module5_result.html')
 
 @module5_bp.route('/login', methods=['POST'])
 def login():

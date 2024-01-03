@@ -4,7 +4,7 @@ module4_bp = bp('module4', __name__)
 
 @module4_bp.route('/task4', methods=['POST'])
 def task4():
-    return render_template("module4_result.html")
+    return render_template("basic/module4_result.html")
 
 @module4_bp.route('/details', methods=['POST'])
 def details():
@@ -22,6 +22,6 @@ def details():
             json.dump(existing_details, json_file, indent=2)
 
         # Return the updated details to the HTML template
-        return render_template('form_details_module4.html', details=existing_details)
+        return render_template('basic/form_details_module4.html', details=existing_details)
     else:
         return f"Somthing went wrong."

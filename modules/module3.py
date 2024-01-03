@@ -4,7 +4,7 @@ module3_bp = bp('module3', __name__)
 
 @module3_bp.route('/task3', methods=['POST'])
 def task3():
-    return render_template("module3_result.html")
+    return render_template("basic/module3_result.html")
 
 @module3_bp.route('/person/<int:id>')
 def person_details(id):
@@ -17,4 +17,4 @@ def person_details(id):
     }
      
      person=person_data.get(id)
-     return render_template('person_details.html', person=person)
+     return render_template('basic/person_details.html', person=person)
