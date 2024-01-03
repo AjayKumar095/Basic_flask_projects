@@ -1,0 +1,11 @@
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 124-429-167
+ERROR:engineio.server:http://127.0.0.1:5000 is not an accepted origin. (further occurrences of this error will be logged with level INFO)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 124-429-167
+ERROR:engineio.server:http://127.0.0.1:5000 is not an accepted origin. (further occurrences of this error will be logged with level INFO)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 124-429-167

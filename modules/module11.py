@@ -14,5 +14,5 @@ def task11():
 def handle_message(message):
     logger.info(f"Checking for the received message: {message}")
     print("Recived message"+message)
-    socketio.send(message, broadcast=True)
+    socketio.emit(message, broadcast=True)
     
