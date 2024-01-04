@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <ul id="message"></ul>
+    <ul id="messages"></ul>
 
     <form id="form">
         <input type="text" id="input" placeholder="Enter your message">
@@ -31,7 +31,7 @@
                 socket.emit('message', message);
     
                 // Display the message in the list with sender's ID
-                const messagesList = document.getElementById('messages');
+               const messagesList = document.getElementById('messages');
                 const listItem = document.createElement('li');
                 listItem.textContent = message;
                 messagesList.prepend(listItem);
@@ -46,6 +46,7 @@
             const listItem = document.createElement('li');
             listItem.textContent = message;
             messagesList.prepend(listItem);
+            inputField.value = '';
         });
     </script>
 

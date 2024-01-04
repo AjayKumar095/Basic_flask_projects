@@ -19,5 +19,5 @@ def handle_message(message):
     emit('message', message, broadcast=True)
     
 def create_app():
-    return socketio    
+    return socketio   
 
