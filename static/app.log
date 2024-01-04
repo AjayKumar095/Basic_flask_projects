@@ -4,28 +4,8 @@ INFO:werkzeug: * Debugger PIN: 291-313-736
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 124-429-167
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:modules.module11:Checking for the received message: hello
-INFO:modules.module11:Checking for the received message: hello
 INFO:modules.module11:Checking for the received message: hii
-INFO:werkzeug: * Detected change in 'd:\\Basic_flask_projects\\modules\\module11.py', reloading
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
 INFO:modules.module11:Checking for the received message: hello
-INFO:modules.module11:Checking for the received message: hello
-INFO:modules.module11:Checking for the received message: hii
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 291-313-736
@@ -39,25 +19,26 @@ INFO:modules.module11:Checking for the received message: hii
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:modules.module11:Checking for the received message: hii
 INFO:modules.module11:Checking for the received message: hello
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
 INFO:modules.module11:Checking for the received message: hello
 INFO:modules.module11:Checking for the received message: hii
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 291-313-736
+INFO:modules.module11:Checking for the received message: hello
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 291-313-736
+INFO:modules.module11:Checking for the received message: hello
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 291-313-736
+INFO:modules.module11:Checking for the received message: hello
+INFO:modules.module11:Checking for the received message: ijj
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
+INFO:modules.module11:Checking for the received message: hello
+INFO:modules.module11:Checking for the received message: hii
+INFO:modules.module11:Checking for the received message: or kya hall hai
+INFO:modules.module11:Checking for the received message: badya tu suna de

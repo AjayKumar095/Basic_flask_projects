@@ -16,39 +16,48 @@
         <input type="text" id="input" placeholder="Enter your message">
         <button type="submit">Send</button>
     </form>
+    <!-- ... -->
 
-    <script>
-        const socket = io();
-    
-        document.getElementById('form').addEventListener('submit', function (event) {
-            event.preventDefault();
-    
-            const inputField = document.getElementById('input');
-            const message = inputField.value.trim();
-    
-            if (message !== '') {
-                // Emit the message to the server
-                socket.emit('message', message);
-    
-                // Display the message in the list with sender's ID
-               const messagesList = document.getElementById('messages');
-                const listItem = document.createElement('li');
-                listItem.textContent = message;
-                messagesList.prepend(listItem);
-    
-                inputField.value = '';
-            }
-        });
-    
-        socket.on('message', function (message) {
-            // Append the message to the list
-            const messagesList = document.getElementById('messages');
-            const listItem = document.createElement('li');
-            listItem.textContent = message;
-            messagesList.prepend(listItem);
+<script>
+    const socket = io();
+
+    document.getElementById('form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const inputField = document.getElementById('input');
+        const message = inputField.value.trim();
+
+        if (message !== '') {
+            // Emit the message to the server
+            socket.emit('message', message);
+
             inputField.value = '';
-        });
-    </script>
+        }
+    });
+
+    socket.on('message', function (message) {
+        // Display the message in the list
+        const messagesList = document.getElementById('messages');
+        const listItem = document.createElement('li');
+
+        // Add a class to distinguish between sender and receiver
+        listItem.className = 'message-item';
+
+        if (message.senderId === socket.id) {
+            // Sender's message
+            listItem.textContent = `You: ${message.text}`;
+        } else {
+            // Receiver's message
+           // listItem.textContent = `${message.senderId}: ${message.text}`;
+            listItem.textContent = `Sender: ${message.text}`;
+        }
+
+        // Use prepend to insert at the beginning
+        messagesList.appendChild(listItem);
+    });
+</script>
+
+<!-- ... -->
 
 </body>
 </html>

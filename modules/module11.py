@@ -1,4 +1,4 @@
-from flask import Blueprint as bp, render_template
+from flask import Blueprint as bp, render_template,request
 from flask_socketio import SocketIO, emit
 import logging
 
@@ -8,7 +8,7 @@ socketio = SocketIO()
 
 logger = logging.getLogger(__name__)
 
-@module11_bp.route('/task11')
+@module11_bp.route('/task11',methods=['POST'])
 def task11():
     return render_template("advance/module11_result.html")
 
@@ -16,7 +16,8 @@ def task11():
 def handle_message(message):
     logger.info(f"Checking for the received message: {message}")
     print('Received message:', message)
-    emit('message', message, broadcast=True)
+    #emit('message', message, broadcast=True)
+    emit('message', {'senderId': request.sid, 'text': message}, broadcast=True)
     
 def create_app():
     return socketio   
