@@ -1,11 +1,38 @@
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 124-429-167
-ERROR:engineio.server:http://127.0.0.1:5000 is not an accepted origin. (further occurrences of this error will be logged with level INFO)
+INFO:werkzeug: * Debugger PIN: 291-313-736
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 291-313-736
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 291-313-736
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 124-429-167
-ERROR:engineio.server:http://127.0.0.1:5000 is not an accepted origin. (further occurrences of this error will be logged with level INFO)
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 124-429-167
+INFO:werkzeug: * Debugger PIN: 291-313-736
+INFO:modules.module11:Checking for the received message: hello
+INFO:modules.module11:Checking for the received message: hello
+INFO:modules.module11:Checking for the received message: hii
+INFO:werkzeug: * Detected change in 'd:\\Basic_flask_projects\\modules\\module11.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 291-313-736
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 291-313-736
+INFO:modules.module11:Checking for the received message: hello
+INFO:modules.module11:Checking for the received message: hello
+INFO:modules.module11:Checking for the received message: hii
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 291-313-736
+INFO:modules.module11:Checking for the received message: hello
+INFO:modules.module11:Checking for the received message: hii
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 291-313-736
+INFO:modules.module11:Checking for the received message: hello
+INFO:modules.module11:Checking for the received message: hii
