@@ -13,26 +13,86 @@
                 margin: 0;
                 padding: 0;
                 background-color: #f4f4f4;
+                margin-top: 25px;
             }
-    
+            
+            /* Container Styles */
             div {
                 max-width: 600px;
-                margin: auto;
-                margin-top: 25px;
+                margin: 0 auto;
                 padding: 20px;
                 background-color: #fff;
                 border-radius: 8px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             }
-    
+            
+            /* Heading Styles */
             h1 {
                 color: #007bff;
                 text-align: center;
             }
+            
+            /* Subheading Styles */
+            h3 {
+                color: #555;
+                text-align: center;
+            }
+            
+            /* Link Styles */
+            a {
+                display: block;
+                text-align: center;
+                color: #007bff;
+                text-decoration: none;
+                padding: 10px;
+                margin-top: 20px;
+                background-color: #f0f0f0;
+                border-radius: 4px;
+                transition: background-color 0.3s ease-in-out;
+            }
+            p {
+                color: #555;
+                font-size: 14px;
+                margin-top: 10px;
+                text-align: center;
+            }
+            
+            a:hover {
+                background-color: #ddd;
+            }
+            
+            /* Media Queries for Smaller Screens */
+            @media only screen and (max-width: 600px) {
+                div {
+                    max-width: 90%;
+                }
+                body{
+                    margin-top: 15px;
+                }
+            }
+            
         </style>
     </head>
     <body>
-        <div><h1>Program 10</h1><br><h1>404 and 500 error handling.</h1></div><br>
-        
+        <div>
+            <h1>Program 10</h1>
+                <h1>404 and 500 error handling.</h1>
+        </div>
+        <br>
+        <div>
+                <h1>404 ERROR</h1>
+                <p>A 404 status code is returned when the requested resource is not found.
+                     Customize your 404 error page to provide a user-friendly message
+                      explaining that the requested resource could not be found or redirect them to a new location of that resource.</p>
+                <a href="{{ url_for('module10.handling404') }}">Generate 404</a>
+        </div><br>
+        <div>
+                <h1>500 ERROR</h1>
+                <p>A 500 status code signals an internal server error. Log detailed error messages on the server to help diagnose.
+                    On the user interface, display a friendly error message that apologizes for the inconvenience and assures users that the problem is being addressed.
+                </p>
+                <a href="{{ url_for('module10.handling500') }}">Generate 500</a>
+        </div>
+  
     </body>
 </html>

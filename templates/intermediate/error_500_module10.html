@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .error-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .error-message {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #e74c3c;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .explanation {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #2ecc71;
+        }
+
+        pre {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+    </style>
+    <title>500 Internal Server Error</title>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-message">
+            <h1>500 Internal Server Error</h1>
+            <p>We apologize for the inconvenience. Our team is actively working to resolve the issue. Please try again later.</p>
+            <p>Error: - {{e}}</p>
+            <p><a href="{{ url_for('module10.home') }}">Go to Home page</a></p>
+        </div>
+    </div>
+    <div class="explanation">
+        <h2>Generating a 500 Error:</h2>
+        <p>To simulate a 500 error, you can deliberately trigger an exception in your code. For example:</p>
+
+        <pre>
+            <code>
+                try:
+                    # Here we try to divide 1 by 0 which is mathematically undefined, Hence it gives a 500 error.
+                    result = 1 / 0
+                    return result
+                except ZeroDivisionError as e:
+                    return render_template("intermediate/error_500_module10.html", e=e)
+            </code>
+        </pre>
+        <p><em>Note: Division by zero is mathematically undefined because there is no real number that, when multiplied by 0, gives a non-zero result.</em></p>
+        <p>Handle the 500 error in your server-side code or framework by implementing appropriate error-handling mechanisms.</p>
+    </div>
+</body>
+</html>

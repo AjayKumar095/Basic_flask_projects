@@ -5,8 +5,7 @@ module2_bp = bp('module2', __name__)
 
 @module2_bp.route('/task2', methods=['POST'])
 def task2():
-    result = "Welcome!"
-    return render_template("basic/module2_result.html", result=result)
+    return render_template("basic/module2_result.html")
 
 @module2_bp.route('/page1')
 def page1():

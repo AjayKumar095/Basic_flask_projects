@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .error-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .error-message {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #e74c3c;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        .explanation {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #2ecc71;
+        }
+
+        pre {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+    </style>
+    <title>404 Not Found</title>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-message">
+            <h1>404 Not Found</h1>
+            <p>We're sorry, but the page you're looking for could not be found. It might have been moved or no longer exists.</p>
+            <p>Error :- {{e}}</p>
+            <p><a href="{{ url_for('module10.home') }}">Go to Home page</a></p>
+        </div>
+    </div>
+    <div class="explanation">
+        <h2>Generating a 404 Error:</h2>
+        <p>To simulate a 404 error, you can deliberately try to access a file or resource that doesn't exist on your server. For example:</p>
+        <pre>
+            <code>
+                try:
+                    # The text file we try to open does not exist on my computer, hence it gives a 404 error.
+                    with open("xyz.txt", 'r') as f:
+                        data = f.read()
+                    return data
+                except Exception as e:
+                    return render_template("intermediate/error_500_module10.html", e=e)
+            </code>
+        </pre>
+        <p>Handle the 404 error in your server-side code or framework by implementing appropriate error-handling mechanisms like try-except block.</p>
+    </div>
+</body>
+</html>

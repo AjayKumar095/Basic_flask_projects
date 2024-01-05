@@ -8,6 +8,7 @@ from modules.module3 import module3_bp
 from modules.module4 import module4_bp
 from modules.module5 import module5_bp
 from modules.module6 import module6_bp
+from modules.module10 import module10_bp
 from modules.module11 import module11_bp, socketio
 
 app = Flask(__name__)
@@ -24,6 +25,7 @@ app.register_blueprint(module3_bp, url_prefix='/module3')
 app.register_blueprint(module4_bp, url_prefix='/module4')
 app.register_blueprint(module5_bp, url_prefix='/module5')
 app.register_blueprint(module6_bp, url_prefix='/module6')
+app.register_blueprint(module10_bp, url_prefix='/module10')
 app.register_blueprint(module11_bp, url_prefix='/module11')
 
 @app.route('/')
@@ -32,5 +34,5 @@ def index():
 
 if __name__ == '__main__':
     socketio.init_app(app)
-    socketio.run(app, debug=True,port=8000)
+    socketio.run(app, debug=True)
 
