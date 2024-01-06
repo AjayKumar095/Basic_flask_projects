@@ -9,6 +9,7 @@ from modules.module4 import module4_bp
 from modules.module5 import module5_bp
 from modules.module6 import module6_bp
 from modules.module10 import module10_bp
+from modules.module9 import module9_bp
 from modules.module11 import module11_bp, socketio
 
 app = Flask(__name__)
@@ -25,6 +26,7 @@ app.register_blueprint(module3_bp, url_prefix='/module3')
 app.register_blueprint(module4_bp, url_prefix='/module4')
 app.register_blueprint(module5_bp, url_prefix='/module5')
 app.register_blueprint(module6_bp, url_prefix='/module6')
+app.register_blueprint(module9_bp, url_prefix='/module9')
 app.register_blueprint(module10_bp, url_prefix='/module10')
 app.register_blueprint(module11_bp, url_prefix='/module11')
 
