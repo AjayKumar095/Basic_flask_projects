@@ -6,13 +6,115 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+            }
+    
+            .container {
+                width: 80%;
+                max-width: 900px;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                
+            }
+    
+            .form-container {
+                flex-basis: 40%;
+                margin: 2.5%;
+                padding: 1.1rem;
+                border: 1 px solid black;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+    
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+    
+            label {
+                margin-bottom: 8px;
+                font-weight: bold;
+            }
+    
+            input {
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                transition: border-color 0.3s;
+            }
+    
+            input:focus {
+                border-color: #4caf50;
+            }
+    
+            button {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 12px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+    
+            button:hover {
+                background-color: #45a049;
+            }
+    
+            h1, h2 {
+                text-align: center;
+                color: #333;
+                width: 100%;
+            }
+            p {
+                color: #333;
+                font-size: 14px;
+                margin-top: 10px;
+                text-align: center;
+            }
+            a {
+                display: block;
+                text-align: center;
+                color: #fff;
+                text-decoration: none;
+                padding: 10px;
+                margin-top: 20px;
+                
+                position: relative;
+                background-color: #45a049;
+                border-radius: 4px;
+                transition: background-color 0.3s ease-in-out;
+            }
+            
+    
+        </style>
+
     </head>
-    <body>
-       <h1>RESTful API for CRUD operations.</h1>
-      
-       <form action="{{ url_for('module9.add_books') }}" method="post" id='form1'>
+ <body>
+   
+    <div class="container">
+        <h1>RESTful API for CRUD operations.</h1>
+    <div class="form-container">
+        <h2>Add New Book Record</h2>
+       <form action="{{ url_for('module9.add_books') }}" method="post" >
         <label for="id">Book ID:</label>
-        <input type="text" id="id" name="id" required>
+        <input type="number" id="id" name="id" required>
 
         <label for="title">Title</label>
         <input type="text" id="title" name="title" required>
@@ -23,40 +125,50 @@
         <label for="unit">Add units</label>
         <input type="number" id="unit" name="unit" required>
 
-        <button type="submit" name="add_book" >Submit</button>
+        <button type="submit" name="add_book" onclick=form1()>Add book</button>
     </form>
+        </div>
     <br>
-    <div>
+    <div class="form-container">
         <h2>Display books</h2>
-        <a href="{{ url_for('module9.display_books') }}">display</a>
+        <p>To observe the CRUD functions in action, attempt to display the book data. This will provide insight into how the data undergoes changes when records are added, updated, or deleted from the file.</p>
+        <a href="{{ url_for('module9.display_books') }}">Display books</a>
     </div>
 
     <br>
-    <form action="{{ url_for('module9.update_unit') }}" method="post" id='form2'>
-        <label for="id">Enter Book ID:</label>
-        <input type="number" id="id" name="id" required>
+    <div class="form-container">
+        <h2>Update Book Units</h2>
+    <form action="{{ url_for('module9.update_unit') }}" method="post">
+        <label for="Id">Enter Book ID:</label>
+        <input type="number" id="Id" name="Id" required>
 
-        <label for="unit">Update units</label>
-        <input type="text" id="unit" name="unit" required>
+        <label for="Unit">Update units</label>
+        <input type="number" id="Unit" name="Unit" required>
 
-        <button type="submit" name="update" >Update</button>
+        <button type="submit" name="update" onclick=form2()>Update</button>
+    </form> 
+     </div>
+    <br>
+    <div class="form-container">
+        <h2>Delete Record</h2>
+    <form action="{{ url_for('module9.delete_book') }}" method="post">
+        <label for="Id">Enter Book ID:</label>
+        <input type="number" id="Id" name="Id" required>
+
+        <button type="submit" name="delete" onclick=form3()>Delete</button>
     </form>
+  </div>
+</div>
     <script>
-        function showAlert(message) {
-            alert(message);
+        function form1() {
+            alert("Book Added Successfully");
         }
-
-        // Bind the showAlert function to the submit event of form1
-        document.getElementById('form1').addEventListener('submit', function (event) {
-            event.preventDefault();  // Prevent the form from actually submitting
-            showAlert('Book added successfully');
-        });
-
-        // Bind the showAlert function to the submit event of form2
-        document.getElementById('form2').addEventListener('submit', function (event) {
-            event.preventDefault();  // Prevent the form from actually submitting
-            showAlert('Units update successfully');
-        });
+        function form2() {
+            alert("Unit Updated Successfully");
+        }
+        function form3() {
+            alert("Book Deleted Successfully");
+        }
     </script>
-    </body>
+</body>
 </html>

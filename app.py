@@ -9,11 +9,11 @@ from modules.module4 import module4_bp
 from modules.module5 import module5_bp
 from modules.module6 import module6_bp
 from modules.module10 import module10_bp
-from modules.module9 import module9_bp
+from modules.module9 import module9_bp,logger
 from modules.module11 import module11_bp, socketio
 
 app = Flask(__name__)
-logging.basicConfig(filename='static/app.log', level=logging.DEBUG)
+logging.basicConfig(filename='static/app.log', level=logging.INFO)
 
 
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
