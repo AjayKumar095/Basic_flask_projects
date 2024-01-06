@@ -8,6 +8,55 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-       <h1>{{result}}</h1>
+       <h1>RESTful API for CRUD operations.</h1>
+      
+       <form action="{{ url_for('module9.add_books') }}" method="post" id='form1'>
+        <label for="id">Book ID:</label>
+        <input type="text" id="id" name="id" required>
+
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+
+        <label for="unit">Add units</label>
+        <input type="number" id="unit" name="unit" required>
+
+        <button type="submit" name="add_book" >Submit</button>
+    </form>
+    <br>
+    <div>
+        <h2>Display books</h2>
+        <a href="{{ url_for('module9.display_books') }}">display</a>
+    </div>
+
+    <br>
+    <form action="{{ url_for('module9.update_unit') }}" method="post" id='form2'>
+        <label for="id">Enter Book ID:</label>
+        <input type="number" id="id" name="id" required>
+
+        <label for="unit">Update units</label>
+        <input type="text" id="unit" name="unit" required>
+
+        <button type="submit" name="update" >Update</button>
+    </form>
+    <script>
+        function showAlert(message) {
+            alert(message);
+        }
+
+        // Bind the showAlert function to the submit event of form1
+        document.getElementById('form1').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent the form from actually submitting
+            showAlert('Book added successfully');
+        });
+
+        // Bind the showAlert function to the submit event of form2
+        document.getElementById('form2').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent the form from actually submitting
+            showAlert('Units update successfully');
+        });
+    </script>
     </body>
 </html>

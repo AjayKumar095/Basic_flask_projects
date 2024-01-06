@@ -14,10 +14,10 @@ from modules.module11 import module11_bp, socketio
 
 app = Flask(__name__)
 logging.basicConfig(filename='static/app.log', level=logging.DEBUG)
-#app.secret_key = 'fjjkf857fdjft548jnvfKJJNjhdfd'
+
 
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
-#app.config['SECRET_KEY']="djft548jnvfK"
+
 
 
 app.register_blueprint(module1_bp, url_prefix='/module1')
