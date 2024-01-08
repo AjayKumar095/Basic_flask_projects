@@ -1,7 +1,9 @@
+# Importing basic modules
 from flask import Flask, render_template
 from flask_socketio import SocketIO
 import logging
 
+# Importing app modules.
 from modules.module1 import module1_bp
 from modules.module2 import module2_bp
 from modules.module3 import module3_bp
@@ -12,14 +14,14 @@ from modules.module10 import module10_bp
 from modules.module9 import module9_bp,logger
 from modules.module11 import module11_bp, socketio
 
+# Declaring flask app.
 app = Flask(__name__)
-logging.basicConfig(filename='static/app.log', level=logging.INFO)
+logging.basicConfig(filename='static/app.log', level=logging.INFO) # logging 
 
 
-app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # Declaring a maximum file size to upload.
 
-
-
+# Registering the modules with app.
 app.register_blueprint(module1_bp, url_prefix='/module1')
 app.register_blueprint(module2_bp, url_prefix='/module2')
 app.register_blueprint(module3_bp, url_prefix='/module3')
