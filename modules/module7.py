@@ -5,8 +5,7 @@ import sqlite3
 module7_bp=bp("module7", __name__)
 logger = logging.getLogger(__name__)
 
-conn=sqlite3.connect("static/module7_sqlite_database.db")
-cursor=conn.cursor()
+
 
 @module7_bp.route('/task7', methods=["POST", "GET"])
 def task7():
@@ -22,14 +21,16 @@ def add():
             title=request.form.get("title")
             author=request.form.get("author")
             units=request.form.get("unit")
-            
+            with sqlite3.connect("static/module7_sqlite_database.db") as conn:
+                cursor=conn.cursor() 
+                
             insert_statement = '''
-                            INSERT INTO users (username, email, birthdate)
-                            VALUES (?, ?, ?,?);
+                            INSERT INTO books ( title, author,units )
+                            VALUES (?, ?, ?);
                         '''
 
              # Execute the INSERT statement with the user input
-            cursor.execute(insert_statement, (book_id, title, author,units))
+            cursor.execute(insert_statement, ( title, author,units))
 
            # Commit the changes and close the connection
             conn.commit()
@@ -38,3 +39,18 @@ def add():
             return redirect(url_for("module7.task7"))
         else:
             return "error"
+        
+        
+@module7_bp.route("/display", methods=["POST", "GET"])
+def display():
+    pass
+
+        
+@module7_bp.route("/update", methods=["POST", "GET"])
+def update():
+    pass     
+
+        
+@module7_bp.route("/delete", methods=["POST", "GET"])
+def delete():
+    pass
