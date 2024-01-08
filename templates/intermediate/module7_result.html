@@ -80,13 +80,13 @@
 <body>
 
     <header>
-        RESTful API using Flask to perform CRUD operations
+        CRUD Operations By Using SQLite
     </header>
 
     <div class="container">
         <div>
             <h2>Add New Book Record</h2>
-            <form action="{{ url_for('module9.add_books') }}" method="post" >
+            <form action="{{ url_for('module7.add') }}" method="post" >
                 <label for="id">Book ID:</label>
                 <input type="number" id="id" name="id" required>
     
@@ -105,11 +105,11 @@
         <div>
             <h2>Display Books</h2>
             <p>To observe the CRUD functions in action, attempt to display the book data. This will provide insight into how the data undergoes changes when records are added, updated, or deleted from the file.</p>
-            <a href="{{ url_for('module9.display_books') }}">Display Books</a>
+            <a href="{{ url_for('module7.display') }}">Display Books</a>
         </div>
         <div>
             <h2>Update Book Units</h2>
-            <form action="{{ url_for('module9.update_unit') }}" method="post">
+            <form action="{{ url_for('module7.update') }}" method="post">
                 <label for="Id">Enter Book ID:</label>
                 <input type="number" id="Id" name="Id" required>
     
@@ -121,7 +121,7 @@
         </div>
         <div>
             <h2>Delete Record</h2>
-            <form action="{{ url_for('module9.delete_book') }}" method="post">
+            <form action="{{ url_for('module7.delete') }}" method="post">
                 <label for="Id">Enter Book ID:</label>
                 <input type="number" id="Id" name="Id" required>
     
