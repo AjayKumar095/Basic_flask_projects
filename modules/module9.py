@@ -7,7 +7,12 @@ module9_bp=bp("module9", __name__)
 
 @module9_bp.route('/task9', methods=["POST",'GET'])
 def task9():
-    return render_template("intermediate/module9_result.html")
+    try:
+        return render_template("intermediate/module9_result.html")
+    
+    except Exception:
+        return """<h1 style="color: red; text-align: center;">500 Internal Server Error</h1>
+                <p style="color: rgb(8, 8, 8); text-align: center;">Sorry for any inconvenience. Our team is working hard to resolve the issue.</p>"""
 
 
 # Method to add a new book in store.
@@ -35,13 +40,16 @@ def add_books():
                     json.dump(data, file, indent=2)
                 file.close()   # closing file after use
                 return redirect(url_for("module9.task9")) # redirecting to home page
-            except FileNotFoundError as e: # Exception handling
-                return e   
+            
+            except FileNotFoundError: # Exception handling
+                return """<h1 style="color: red; text-align: center;">500 Internal Server Error</h1>
+                    <p style="color: rgb(8, 8, 8); text-align: center;">Sorry for any inconvenience. Our team is working hard to resolve the issue.</p>"""   
         else:
             logger.info("form is not valid")
     else:
         logger.info("not enter in main if block")
-        return redirect(url_for("module9.task9")) # redirecting to home page
+        return """<h1 style="color: red; text-align: center;">500 Internal Server Error</h1>
+                    <p style="color: rgb(8, 8, 8); text-align: center;">Sorry for any inconvenience. Our team is working hard to resolve the issue.</p>"""
 
 # Method to display avaliable books.
 @module9_bp.route("/display_books")     
@@ -50,8 +58,10 @@ def display_books():
         with open("static/book_data.json",'r') as file: # open file for reading.
             book_data=json.load(file)
         return render_template("intermediate/bookData_modue9.html",book_data=book_data)
-    except FileNotFoundError as e:
-        return e
+    
+    except FileNotFoundError:
+        return """<h1 style="color: red; text-align: center;">500 Internal Server Error</h1>
+                    <p style="color: rgb(8, 8, 8); text-align: center;">Sorry for any inconvenience. Our team is working hard to resolve the issue.</p>"""
     
 # Method to delete a book from the store by book id
 @module9_bp.route("/delete_book", methods=["POST",'GET'])
@@ -70,12 +80,17 @@ def delete_book():
 
                 with open('static/book_data.json', 'w') as file:  # updating file
                     json.dump(data, file, indent=2)
-                file.close()    
-            except FileNotFoundError as e: # Exception handling
-                logger.exceptionc(e)
-        return redirect(url_for("module9.task9"))  # redirecting to home page
+                file.close()  
+                   
+            except FileNotFoundError : # Exception handling
+                return """<h1 style="color: red; text-align: center;">500 Internal Server Error</h1>
+                    <p style="color: rgb(8, 8, 8); text-align: center;">Sorry for any inconvenience. Our team is working hard to resolve the issue.</p>"""
+                
+        return """<h1 style="color: red; text-align: center;">500 Internal Server Error</h1>
+                    <p style="color: rgb(8, 8, 8); text-align: center;">Sorry for any inconvenience. Our team is working hard to resolve the issue.</p>"""
     else:
-        return "Internal server error"
+        return """<h1 style="color: red; text-align: center;">500 Internal Server Error</h1>
+                    <p style="color: rgb(8, 8, 8); text-align: center;">Sorry for any inconvenience. Our team is working hard to resolve the issue.</p>"""
     
     
 # Method to update the units of book by id.
@@ -102,13 +117,19 @@ def update_unit():
                             break    
                     except Exception as e: # Exception handling
                        return f'Book id must be integer {e}'
-            except FileNotFoundError as e: # Exception handling
-                return e      
-            return redirect(url_for("module9.task9"))   # redirecting to home page
+                   
+            except FileNotFoundError: # Exception handling
+                return """<h1 style="color: red; text-align: center;">500 Internal Server Error</h1>
+                    <p style="color: rgb(8, 8, 8); text-align: center;">Sorry for any inconvenience. Our team is working hard to resolve the issue.</p>"""     
+                    
+            return """<h1 style="color: red; text-align: center;">500 Internal Server Error</h1>
+                    <p style="color: rgb(8, 8, 8); text-align: center;">Sorry for any inconvenience. Our team is working hard to resolve the issue.</p>"""  # redirecting to home page
         else:
             logger.info(f"not enter in nested if block")
-            return '<h1>Internal server error</h1>'
+            
+            return """<h1 style="color: red; text-align: center;">500 Internal Server Error</h1>
+                    <p style="color: rgb(8, 8, 8); text-align: center;">Sorry for any inconvenience. Our team is working hard to resolve the issue.</p>"""
     else:
         logger.info(f"not enter in main if block")
-        return '<h1>Internal server error</h1>'
-
+        return """<h1 style="color: red; text-align: center;">500 Internal Server Error</h1>
+                    <p style="color: rgb(8, 8, 8); text-align: center;">Sorry for any inconvenience. Our team is working hard to resolve the issue.</p>"""
