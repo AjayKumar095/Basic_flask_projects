@@ -1,6 +1,7 @@
 # Importing basic modules
 from flask import Flask, render_template
 from flask_socketio import SocketIO
+from flask_login import LoginManager
 import logging
 
 # Importing app modules.
@@ -11,7 +12,7 @@ from modules.module4 import module4_bp
 from modules.module5 import module5_bp
 from modules.module6 import module6_bp
 from modules.module7 import module7_bp
-from modules.module8 import module8_bp
+from modules.module8 import module8_bp,users
 from modules.module10 import module10_bp
 from modules.module9 import module9_bp
 from modules.module11 import module11_bp, socketio
@@ -22,6 +23,12 @@ logging.basicConfig(filename='static/app.log', level=logging.INFO) # logging
 
 
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # Declaring a maximum file size to upload.
+app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+# Initialize Flask-Login
+login_manager = LoginManager(app)
+login_manager.login_view = 'module8.login'
 
 # Registering the modules with app.
 app.register_blueprint(module1_bp, url_prefix='/module1')
