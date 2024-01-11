@@ -1,31 +1,13 @@
+INFO:modules.module8:enter in login form
+INFO:modules.module8:open user file
+INFO:modules.module8:enter in for loop
+INFO:modules.module8:enter in for loop
+INFO:modules.module8:enter in for loop
+INFO:modules.module8:enter in if block
+INFO:modules.module8:enter in function
+INFO:modules.module8:enter in try block dash
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 291-313-736
 INFO:modules.module12:Checking for the received message: hello
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
 INFO:modules.module12:Checking for the received message: hii
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:werkzeug: * Restarting with stat
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 291-313-736
-INFO:modules.module8:enter in function
-INFO:modules.module8:enter in try block dash
