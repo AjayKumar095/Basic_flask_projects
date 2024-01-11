@@ -61,7 +61,7 @@ def signup():
             return "error"    
 
 @module8_bp.route("/dashboard/<username>")
-@login_required
+#@login_required
 def dashboard(username):
     try:
         return render_template("intermediate/users_dashboard_module8.html",username=username)
@@ -71,7 +71,7 @@ def dashboard(username):
             <p style="color: rgb(8, 8, 8); text-align: center;">Sorry for any inconvenience. Our team is working hard to resolve the issue.</p>"""
 
 module8_bp.route('/logout')
-@login_required
+#@login_required
 def logout():
     logout_user()
     return redirect(url_for('module8.login'))            

@@ -1,0 +1,146 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Chat App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+   <style>
+    /* General styling for the body */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+/* General styling for the form and chat containers */
+#form-container,
+#chat-container {
+    max-width: 600px; /* Set a maximum width for better readability */
+    margin: auto; /* Center the containers horizontally */
+}
+
+/* Styling for the form */
+.message-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Input styling */
+#input {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Button styling */
+button {
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Style for the chat container */
+#chat-container {
+    margin-top: 20px;
+}
+
+/* Style for the messages list */
+.message-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Style for each message item */
+.message-item {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+h2{
+    text-align: center;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 600px) {
+    #form-container,
+    #chat-container {
+        padding: 10px; /* Add some padding for better spacing */
+    }
+
+    /* Center the form elements vertically on smaller screens */
+    .message-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Set a maximum width for the input on smaller screens */
+    #input {
+        max-width: 100%;
+    }
+}
+
+   </style>
+    
+</head>
+<body>
+    <div id="form-container">
+        <h2>Real Time Data update</h2>
+        <form id="form" class="message-form">
+            <input type="text" id="input" placeholder="Enter your message">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div id="chat-container">
+        <ul id="messages" class="message-list"></ul>
+    </div>
+<script>
+    const socket = io();
+
+    document.getElementById('form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const inputField = document.getElementById('input');
+        const message = inputField.value.trim();
+
+        if (message !== '') {
+            // Emit the message to the server
+            socket.emit('message', message);
+
+            inputField.value = '';
+        }
+    });
+
+    socket.on('message', function (message) {
+        // Display the message in the list
+        const messagesList = document.getElementById('messages');
+        const listItem = document.createElement('li');
+
+        // Add a class to distinguish between sender and receiver
+        listItem.className = 'message-item';
+
+        if (message.senderId === socket.id) {
+            // Sender's message
+            listItem.textContent = `You: ${message.text}`;
+        } else {
+            // Receiver's message
+           // listItem.textContent = `${message.senderId}: ${message.text}`;
+            listItem.textContent = `Sender: ${message.text}`;
+        }
+
+        // Use prepend to insert at the beginning
+        messagesList.appendChild(listItem);
+    });
+</script>
+</body>
+</html>
