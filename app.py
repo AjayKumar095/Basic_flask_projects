@@ -17,16 +17,17 @@ from modules.module10 import module10_bp
 from modules.module9 import module9_bp
 from modules.module11 import module11_bp, socketio
 from modules.module12 import module12_bp, socketio
+from modules.module13 import module13_bp, socketio13
 
 # Declaring flask app.
 app = Flask(__name__)
+app1 = Flask(__name__)
 logging.basicConfig(filename='static/app.log', level=logging.INFO) # logging 
 
 
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # Declaring a maximum file size to upload.
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-
 
 
 # Registering the modules with app.
@@ -42,13 +43,14 @@ app.register_blueprint(module9_bp, url_prefix='/module9')
 app.register_blueprint(module10_bp, url_prefix='/module10')
 app.register_blueprint(module11_bp, url_prefix='/module11')
 app.register_blueprint(module12_bp, url_prefix='/module12')
+app.register_blueprint(module13_bp, url_prefix='/module13')
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    socketio.init_app(app)
-    socketio.run(app, debug=True, port=5000)
-    
-
+    socketio.init_app(app, cors_allowed_origins="*")
+    socketio.run(app, debug=True)  
+  
+  

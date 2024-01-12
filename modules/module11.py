@@ -16,9 +16,8 @@ def task11():
 def handle_message(message):
     logger.info(f"Checking for the received message: {message}")
     print('Received message:', message)
-    #emit('message', message, broadcast=True)
     emit('message', {'senderId': request.sid, 'text': message}, broadcast=True)
     
-def create_app():
+def Create_app():
     return socketio  
 
