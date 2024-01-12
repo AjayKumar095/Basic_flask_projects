@@ -17,7 +17,7 @@ from modules.module10 import module10_bp
 from modules.module9 import module9_bp
 from modules.module11 import module11_bp, socketio
 from modules.module12 import module12_bp, socketio
-from modules.module13 import module13_bp, socketio13
+from modules.module13 import module13_bp, socketio
 
 # Declaring flask app.
 app = Flask(__name__)

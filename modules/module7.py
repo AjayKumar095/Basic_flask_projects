@@ -41,7 +41,7 @@ def add():
 
                # Commit the changes and close the connection
                 conn.commit()
-                conn.close()
+                #conn.close()
             
                 return redirect(url_for("module7.task7"))
             
@@ -75,7 +75,7 @@ def display():
             # Fetch all rows as a list of tuples
             book_data = cursor.fetchall()
             conn.commit()
-            conn.close()
+            #conn.close()
         return render_template("intermediate/sqlite_data_module7.html", book_data=book_data)
     
     except Exception:
@@ -104,7 +104,7 @@ def update():
                     # Execute the UPDATE statement with the user input
                     cursor.execute(update_statement, (new_unit, book_id))
                     conn.commit()
-                    conn.close()
+                    #conn.close()
                     return redirect(url_for("module7.task7"))
             
             except Exception:

@@ -3,21 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask WebSocket Notifications</title>
+    <title>Notification Example</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .notification-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            max-width: 300px;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1000;
+        }
+
+        .notification-btn {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div id="notification-container">hii</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <button class="notification-btn" onclick="showNotification()">Show Notification</button>
+    <div class="notification-container" id="notificationContainer"></div>
+
     <script>
-        var socket = io.connect('http://' + document.domain + ':' + location.port);
-
-        socket.on('new_notification', function(data) {
-            var notificationContainer = document.getElementById('notification-container');
-            var notification = document.createElement('div');
-            notification.textContent = 'New Notification: ' + data.message;
+        function showNotification() {
+            const notificationContainer = document.getElementById('notificationContainer');
+            
+            // Create a notification div
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = 'This is a notification!';
+            
+            // Add the notification to the container
             notificationContainer.appendChild(notification);
-        });
+
+            // Display the notification
+            notificationContainer.style.display = 'block';
+
+            // Hide the notification after a delay (e.g., 3 seconds)
+            setTimeout(() => {
+                notificationContainer.style.display = 'none';
+                // Remove the notification from the container
+                notificationContainer.removeChild(notification);
+            }, 3000);
+        }
     </script>
+
 </body>
 </html>
+

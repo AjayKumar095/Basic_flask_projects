@@ -3,7 +3,7 @@ from flask_socketio import SocketIO, emit
 import logging
 
 module13_bp = bp('module13', __name__)
-socketio13 = SocketIO()
+socketio = SocketIO()
 
 
 logger = logging.getLogger(__name__)
@@ -12,12 +12,11 @@ logger = logging.getLogger(__name__)
 def task13():
     return render_template("advance/module13_result.html")
 
-@socketio13.on('notification')
-def handle_notification(data):
-    message = data['message']
-    emit('new_notification', {'message': message}, broadcast=True)
-
+@socketio.on('message')
+def handle_message(message):
+    logger.info(f"Checking for the received message: {message}")
+    emit('message', {'senderId': request.sid, 'text': message}, broadcast=True)
 
 
 def Create_app():
-    return socketio13
+    return socketio  
