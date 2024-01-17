@@ -16,8 +16,7 @@ from modules.module8 import module8_bp
 from modules.module10 import module10_bp
 from modules.module9 import module9_bp
 from modules.module11 import module11_bp, socketio
-from modules.module12 import module12_bp, socketio
-from modules.module13 import module13_bp, socketio
+
 
 # Declaring flask app.
 app = Flask(__name__)
@@ -42,8 +41,7 @@ app.register_blueprint(module8_bp, url_prefix='/module8')
 app.register_blueprint(module9_bp, url_prefix='/module9')
 app.register_blueprint(module10_bp, url_prefix='/module10')
 app.register_blueprint(module11_bp, url_prefix='/module11')
-app.register_blueprint(module12_bp, url_prefix='/module12')
-app.register_blueprint(module13_bp, url_prefix='/module13')
+
 
 @app.route('/')
 def index():
