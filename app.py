@@ -15,7 +15,7 @@ from modules.module7 import module7_bp
 from modules.module8 import module8_bp
 from modules.module10 import module10_bp
 from modules.module9 import module9_bp
-from modules.module11 import module11_bp, socketio
+
 
 
 # Declaring flask app.
@@ -40,7 +40,7 @@ app.register_blueprint(module7_bp, url_prefix='/module7')
 app.register_blueprint(module8_bp, url_prefix='/module8')
 app.register_blueprint(module9_bp, url_prefix='/module9')
 app.register_blueprint(module10_bp, url_prefix='/module10')
-app.register_blueprint(module11_bp, url_prefix='/module11')
+
 
 
 @app.route('/')
@@ -48,7 +48,7 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    socketio.init_app(app, cors_allowed_origins="*")
-    socketio.run(app, debug=True)  
+ 
+    app.run(debug=True)  
   
   
